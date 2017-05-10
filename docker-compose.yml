@@ -1,7 +1,0 @@
-dhcpd:
-  image: joebiellik/dhcpd
-
-  net: dhcp_test
-
-  volumes:
-    - ./dhcpd.conf:/etc/dhcp/dhcpd.conf
