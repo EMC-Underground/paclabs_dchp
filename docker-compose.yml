@@ -1,7 +1,7 @@
 dhcpd:
-  image: joebiellik/bind
+  image: joebiellik/dhcpd
 
-  net: host
+  net: dhcp_test
 
   volumes:
     - ./dhcpd.conf:/etc/dhcp/dhcpd.conf
