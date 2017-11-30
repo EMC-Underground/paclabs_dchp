@@ -1,0 +1,25 @@
+#vSphere Section
+vsphere_username=""
+vsphere_password=""
+vsphere_vcenter=""
+vsphere_vm_name=""
+vsphere_os_hostname=""
+vsphere_vcpu="2"
+vsphere_memory="4096"
+vsphere_port_group_1=""
+vsphere_port_group_2=""
+vsphere_datastore=""
+vsphere_datacenter=""
+vsphere_cluster=""
+vsphere_folder=""
+vsphere_template="template-centos7"
+
+#Environment Section
+dns=["",""]
+domain=""
+ipv4_address_1 = ""
+ipv4_prefix_length_1 = "24"
+ipv4_gateway_1 = ""
+ipv4_address_2 = ""
+ipv4_prefix_length_2 = "24"
+ipv4_gateway_2 = ""

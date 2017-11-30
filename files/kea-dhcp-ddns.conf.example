@@ -1,0 +1,105 @@
+// Config file for the Kea DHCPv4 and DHCPv6 servers.
+// Extended JSON (can use comments)
+//
+// This configuration file contains only DHCP DDNS daemon's configuration.
+// If configurations for other Kea services are also included in this file they
+// are ignored by the DHCP DDNS daemon.
+
+{
+"DhcpDdns":
+{
+  "ip-address": "127.0.0.1",
+  "port": 53001,
+  "tsig-keys": [],
+  "forward-ddns" : {
+        "ddns-domains": [
+            {
+// "name" = forward lookup zone, ip-address = DNS server
+                "name": "lab.emc.com.",
+                "key-name": "",
+                "dns-servers": [
+                    {
+                        "ip-address": "10.0.0.1"
+                    }
+                ]
+            }
+        ]
+  },
+  "reverse-ddns" : {
+      "ddns-domains": [
+          {
+// "name" = reverse lookup zone, ip-address = DNS server
+              "name": "0.0.10.in-addr.arpa.",
+              "key-name": "",
+              "dns-servers": [
+                  {
+                      "ip-address": "10.0.0.1"
+                  }
+              ]
+          },
+// additional entries
+          {
+              "name": ".in-addr.arpa.",
+              "key-name": "",
+              "dns-servers": [
+                  {
+                      "ip-address": ""
+                  }
+              ]
+          }
+      ]
+  }
+},
+
+"Logging":
+{
+  "loggers": [
+    {
+        "name": "kea-dhcp-ddns",
+        "output_options": [
+            {
+                "output": "/usr/local/var/log/kea-ddns.log"
+            }
+        ],
+        // This specifies the severity of log messages to keep. Supported values
+        // are: FATAL, ERROR, WARN, INFO, DEBUG
+        "severity": "INFO",
+
+        // If DEBUG level is specified, this value is used. 0 is least verbose,
+        // 99 is most verbose. Be cautious, Kea can generate lots and lots
+        // of logs if told to do so.
+        "debuglevel": 0
+    },
+    {
+        "name": "kea-dhcp-ddns.dctl",
+        "output_options": [
+            {
+                "output": "/usr/local/var/log/kea-ddns-dctl.log"
+            }
+        ],
+        "severity": "INFO",
+        "debuglevel": 0
+    },
+    {
+        "name": "kea-dhcp-ddns.dhcp-to-d2",
+        "output_options": [
+            {
+                "output": "/usr/local/var/log/kea-ddns-dhcp-to-d2.log"
+            }
+        ],
+        "severity": "INFO",
+        "debuglevel": 0
+    },
+    {
+        "name": "kea-dhcp-ddns.d2-to-dns",
+        "output_options": [
+            {
+                "output": "/usr/local/var/log/kea-ddns-d2-to-dns.log"
+            }
+        ],
+        "severity": "INFO",
+        "debuglevel": 0
+    }
+  ]
+}
+}
