@@ -9,6 +9,6 @@ Requires a compiled Kea 1.3
 - terraform.tfvars
 - files/kea-ctrl-agent.conf
 - files/kea-dhcp-ddns.conf
-- files/kea-dhcp-ddns.conf
+- files/kea-dhcp4.confLw
 
 Run 'make' to install
